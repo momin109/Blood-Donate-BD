@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-tap-highlight-color: transparent; }
+  body { @apply bg-surface text-ink antialiased; overflow-x: clip; }
+  input, select, textarea { @apply outline-none; }
+}
+@layer components {
+  .field { @apply h-12 w-full min-w-0 max-w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 text-[15px] placeholder:text-gray-400 transition focus:border-brand-500 focus:bg-white focus:ring-4 focus:ring-brand-100; }
+  .label { @apply mb-1.5 block text-sm font-medium text-ink; }
+}
+@layer utilities {
+  .pb-safe { padding-bottom: max(0.5rem, env(safe-area-inset-bottom)); }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+}
+@media print { header, nav, .no-print { display: none !important; } body { background: #fff; } }
