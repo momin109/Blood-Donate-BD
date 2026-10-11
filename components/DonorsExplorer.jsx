@@ -105,11 +105,11 @@ function StatCard({ icon: Icon, value, label, iconBg, iconColor, valueColor }) {
   return (
     <div className="flex flex-col items-center rounded-3xl border border-red-50 bg-white px-2 py-4 text-center shadow-[0_6px_24px_rgba(0,0,0,0.05)]">
       <span
-        className={`flex h-11 w-11 items-center justify-center rounded-full ${iconBg}`}
+        className={`flex h-10 w-10 items-center justify-center rounded-full ${iconBg}`}
       >
-        <Icon className={`h-5 w-5 ${iconColor}`} />
+        <Icon className={`h-4 w-4 ${iconColor}`} />
       </span>
-      <p className={`mt-2 text-3xl font-extrabold leading-none ${valueColor}`}>
+      <p className={`mt-2 text-xl font-extrabold leading-none ${valueColor}`}>
         {value}
       </p>
       <p className="mt-2 text-xs font-medium leading-tight text-gray-500">
