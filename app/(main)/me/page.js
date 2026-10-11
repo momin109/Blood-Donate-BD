@@ -89,26 +89,6 @@ export default function MyProfile() {
             </div>
             <Switch on={on} onChange={setOn} />
           </Card>
-          <Card className="p-2">
-            <p className="px-3 pb-1 pt-3 text-lg font-bold">Menu</p>
-            {menu.map(([Icon, l, h]) => (
-              <Link
-                key={l}
-                href={h}
-                className="flex items-center gap-3 rounded-2xl px-3 py-3.5 hover:bg-surface"
-              >
-                <Icon className="h-5 w-5 text-ink-soft" />
-                <span className="flex-1 text-[15px] font-medium">{l}</span>
-                <ChevronRight className="h-4 w-4 text-gray-400" />
-              </Link>
-            ))}
-          </Card>
-          <Link href="/login" className="block">
-            <Button size="lg" className="w-full">
-              <LogOut className="h-5 w-5" />
-              Logout
-            </Button>
-          </Link>
         </div>
 
         <div className="min-w-0 space-y-5">
@@ -161,7 +141,7 @@ export default function MyProfile() {
               </p>
             )}
           </Card>
-          <Card className="p-4 sm:p-6">
+          {/* <Card className="p-4 sm:p-6">
             <p className="mb-4 text-lg font-bold">Edit Profile</p>
             <div className="grid gap-4 sm:grid-cols-2">
               <Field label="নাম" defaultValue={me.name} />
@@ -176,7 +156,7 @@ export default function MyProfile() {
               <Select label="উপজেলা" options={upazilas} />
             </div>
             <Button className="mt-5">Save Changes</Button>
-          </Card>
+          </Card> */}
           <Card className="p-4 sm:p-5">
             <p className="mb-4 text-lg font-bold">My Requests</p>
             <ul className="space-y-3.5">
@@ -234,7 +214,29 @@ export default function MyProfile() {
       </section>
 
       <CommunityLinks />
+
+      {/* menu details */}
+      <Card className="p-2">
+        <p className="px-3 pb-1 pt-3 text-lg font-bold">Menu</p>
+        {menu.map(([Icon, l, h]) => (
+          <Link
+            key={l}
+            href={h}
+            className="flex items-center gap-3 rounded-2xl px-3 py-3.5 hover:bg-surface"
+          >
+            <Icon className="h-5 w-5 text-ink-soft" />
+            <span className="flex-1 text-[15px] font-medium">{l}</span>
+            <ChevronRight className="h-4 w-4 text-gray-400" />
+          </Link>
+        ))}
+      </Card>
       <DeveloperInfo />
+      <Link href="/login" className="block">
+        <Button size="lg" className="w-full">
+          <LogOut className="h-5 w-5" />
+          Logout
+        </Button>
+      </Link>
     </div>
   );
 }
