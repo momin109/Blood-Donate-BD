@@ -74,9 +74,9 @@ const DIVISIONS = {
 };
 
 const AVAILABILITY_OPTIONS = [
-  { value: "", label: "সব" },
-  { value: "available", label: "উপলব্ধ" },
-  { value: "unavailable", label: "অনুপলব্ধ" },
+  { value: "", label: "All" },
+  { value: "available", label: "available" },
+  { value: "unavailable", label: "unavailable" },
 ];
 
 function SelectBox({ label, value, onChange, options }) {
