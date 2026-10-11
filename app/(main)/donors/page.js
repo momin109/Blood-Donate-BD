@@ -1,16 +1,5 @@
-import {
-  Search,
-  X,
-  Users,
-  CheckCircle2,
-  Heart,
-  SlidersHorizontal,
-  ChevronDown,
-} from "lucide-react";
-import DonorCard from "@/components/DonorCard";
 import HeroSlider from "@/components/HeroSlider";
-import { BloodChips } from "@/components/Interactive";
-import { Button, Card, Select } from "@/components/ui";
+import DonorsExplorer from "@/components/DonorsExplorer";
 import { donors, districts, upazilas } from "@/data";
 
 const slides = [
@@ -40,54 +29,17 @@ const slides = [
   },
 ];
 
-function Filters() {
-  return (
-    <div className="space-y-4">
-      <BloodChips label="রক্তের গ্রুপ" />
-      <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
-        <Select label="জেলা" options={districts} />
-        <Select label="উপজেলা" options={upazilas} />
-        <Select label="Availability" options={["Available", "Unavailable"]} />
-      </div>
-      <div className="flex gap-2">
-        <Button className="flex-1">
-          <Search className="h-4 w-4" />
-          Search
-        </Button>
-        <Button variant="outline" className="flex-1">
-          <X className="h-4 w-4" />
-          Clear
-        </Button>
-      </div>
-    </div>
-  );
-}
-
 export default function Donors() {
   return (
     <div className="min-w-0 space-y-5">
       <HeroSlider slides={slides} />
 
-      <div className="grid gap-5 lg:grid-cols-[300px_1fr]">
-        {/* Search form: always visible on mobile and desktop */}
-        <Card className="h-fit p-4 sm:p-5 lg:sticky lg:top-24">
-          <p className="mb-4 text-lg font-bold">Find Donors</p>
-          <Filters />
-        </Card>
-
-        {/* Donor list */}
-        <div className="min-w-0">
-          <p className="mb-3 px-1 text-sm text-ink-soft">
-            {donors.length} donors found
-          </p>
-
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-            {donors.map((d) => (
-              <DonorCard key={d.id} donor={d} />
-            ))}
-          </div>
-        </div>
-      </div>
+      <DonorsExplorer
+        donors={donors}
+        districts={districts}
+        upazilas={upazilas}
+        urgentRequests={0}
+      />
     </div>
   );
 }
